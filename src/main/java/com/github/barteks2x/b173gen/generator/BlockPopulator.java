@@ -361,9 +361,9 @@ public class BlockPopulator extends org.bukkit.generator.BlockPopulator {
                 int y = this.getHighestSolidOrLiquidBlock(j19, j22);
                 double temp = this.temperatures[(i24 << 4) | j25] - (y - 64) / 64D * 0.3D;
                 Material m = this.world.getBlockAt(j19, y - 1, j22).getType();
-                if((temp < 0.5D) && y > 0 && y < 128 && this.world.getBlockAt(j19, y, j22).isEmpty()
-                        && !this.world.getBlockAt(j19, y - 1, j22).isLiquid() && m != ICE) {
-                    this.world.getBlockAt(j19, y, j22).setType(SNOW);
+                if((temp < 0.5D) && y > 0 && y < 128 && world.getBlockAt(j19, y, j22).isEmpty()
+                        && !world.getBlockAt(j19, y - 1, j22).isLiquid() && !world.getBlockAt(j19, y - 1, j22).getType().equals(Material.SNOW) && m != ICE) {
+                    world.getBlockAt(j19, y, j22).setType(SNOW);
                 }
             }
 
